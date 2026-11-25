@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Ruba ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;min-height:100vh;overflow-x:hidden;
+ font-family:'Cairo',sans-serif;color:white;
+ background:radial-gradient(ellipse at top,#54264f 0%,#24132f 48%,#100d20 100%);
+ text-align:center;
+}
+#stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;color:#fff1c9;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.5)}}
+
+.container{position:relative;z-index:2;max-width:520px;margin:auto;padding:45px 22px 60px}
+.small{color:#f2b8d3;letter-spacing:4px;font-size:11px}
+h1{font-size:clamp(29px,8vw,42px);margin:14px 0 8px;color:#ffe4f1;text-shadow:0 0 25px #ff8bc5}
+.subtitle{color:#e5bdd8;font-size:14px}
+
+.scene{height:230px;display:grid;place-items:center;margin:25px 0}
+.crystal-heart{
+ position:relative;width:155px;height:155px;
+ display:grid;place-items:center;cursor:pointer;
+ animation:heartBeat 1.7s infinite;
+ filter:drop-shadow(0 0 22px #ff8acb);
+ transition:1s;
+}
+.heart-shape{
+ font-size:145px;line-height:1;
+ background:linear-gradient(145deg,#fff0fa,#ff80bd 40%,#a64dba 75%,#ffe5f4);
+ -webkit-background-clip:text;background-clip:text;
+ color:transparent;-webkit-text-stroke:2px #ffd7ed;
+ text-shadow:0 0 20px #ff9ed5;
+}
+.heart-shine{
+ position:absolute;top:13px;right:17px;
+ color:white;font-size:35px;
+ animation:twinkle 1s infinite alternate;
+}
+.heart-text{
+ position:absolute;color:white;font-weight:800;
+ font-size:17px;letter-spacing:3px;
+ text-shadow:0 0 12px #fff;top:76px;
+}
+.crystal-heart.open{transform:scale(1.3);opacity:0}
+
+@keyframes heartBeat{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.09)}
+}
+
+.btn{
+ border:1px solid #ffd0e4;
+ background:linear-gradient(120deg,#e878aa,#a94e92);
+ color:white;padding:13px 28px;border-radius:40px;
+ font:700 15px 'Cairo';box-shadow:0 0 25px #e878aa66;
+ cursor:pointer;transition:.3s;
+}
+.btn:active{transform:scale(.96)}
+.hidden{display:none!important}
+
+.letter{
+ background:linear-gradient(145deg,#fff0f7,#f4d9ed);
+ color:#743d60;border-radius:24px;padding:24px 20px;
+ box-shadow:0 0 35px #ff9bce33;margin-top:15px;
+ animation:appear 1s ease;
+}
+.letter h2{color:#b64d83;font-size:23px;margin:0 0 12px}
+.letter p{font-size:15px;line-height:2.2;margin:8px 0}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(25px) scale(.95)}
+ to{opacity:1;transform:none}
+}
+
+.ringstage{
+ height:205px;display:grid;place-items:center;position:relative;
+}
+.ring{
+ width:100px;height:100px;border:12px solid #e8c16d;
+ border-radius:50%;transform:rotate(-20deg);
+ box-shadow:0 0 15px #ffe9a6,inset 0 0 8px white;
+ animation:ringRise 2s ease both;position:relative;
+}
+.diamond{
+ position:absolute;width:38px;height:38px;top:-31px;left:19px;
+ transform:rotate(45deg);
+ background:linear-gradient(135deg,#fff,#a8eaff,#fff);
+ border:2px solid white;box-shadow:0 0 25px #a9eaff,0 0 45px #fff;
+ clip-path:polygon(50% 0,100% 35%,80% 100%,20% 100%,0 35%);
+}
+@keyframes ringRise{
+ 0%{transform:translateY(80px) rotate(-20deg) scale(.2);opacity:0}
+ 70%{transform:translateY(-10px) rotate(-20deg) scale(1.15);opacity:1}
+ 100%{transform:translateY(0) rotate(-20deg) scale(1)}
+}
+.proposal{
+ font-size:24px!important;font-weight:800;
+ color:#bd4e86!important;text-shadow:0 0 12px #ffc4df;
+}
+.final{font-size:14px;color:#98617f}
+#fireworks{position:fixed;inset:0;pointer-events:none;z-index:5}
+.floating{
+ position:fixed;bottom:-40px;z-index:1;
+ animation:float 8s linear infinite;pointer-events:none;
+}
+@keyframes float{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+.actions{margin-top:20px}
+.heart-beat{font-size:25px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.3)}}
+</style>
+</head>
+
+<body>
+<div id="stars"></div>
+<canvas id="fireworks"></canvas>
+
+<main class="container">
+ <div class="small">A MOMENT JUST FOR YOU</div>
+ <h1>رُبى... ❤️</h1>
+ <div class="subtitle">في شي بقلبي من زمان بدي فرجيكي ياه</div>
+
+ <div class="scene">
+  <div class="crystal-heart" id="crystalHeart" onclick="openLetter()">
+   <div class="heart-shape">♥</div>
+   <div class="heart-shine">✦</div>
+   <div class="heart-text">RUBA</div>
+  </div>
+ </div>
+
+ <button class="btn" id="openBtn" onclick="openLetter()">
+  افتحي قلبي يا حبيبتي 💗
+ </button>
+
+ <section class="letter hidden" id="letter">
+  <h2>إلى أجمل إنسانة بحياتي</h2>
+  <p>
+   رُبى، ❤️<br>
+   من وقت ما عرفتك، صار عندي سبب جديد ابتسم كل يوم.
+   إنتِ مش بس حبيبتي، إنتِ الأمان والفرحة والحلم اللي بتمنى عيشه.
+  </p>
+  <p>
+   وكل ما بفكر بالمستقبل، بشوفك حدّي...
+   بكل تفاصيله الحلوة والصعبة، بكل ضحكة وبكل لحظة.
+  </p>
+  <p>بس اليوم في شي خاص كتير ناطرك... ✨</p>
+  <div class="heart-beat">💗</div>
+  <div class="actions">
+   <button class="btn" onclick="showRing()">
+    شوفي مفاجأتك الأخيرة 💍
+   </button>
+  </div>
+ </section>
+
+ <section class="letter hidden" id="ringCard">
+  <div class="small">MY PROMISE TO YOU</div>
+  <h2>هيدا إلك يا رُبى 💍</h2>
+
+  <div class="ringstage">
+   <div class="ring">
+    <div class="diamond"></div>
+   </div>
+  </div>
+
+  <p>
+   هالمحبس مش مجرد قطعة ألماس...
+   هو وعد إنّي اختارك كل يوم،
+   وإنّي بدي كون حدّك ونبني سوا أحلى عمر.
+  </p>
+
+  <p class="proposal">رُبى... بتقبلي تكوني شريكة عمري؟ ❤️</p>
+  <p class="final">منّي إلك، حب ما إلو نهاية.</p>
+  <div class="heart-beat">❤️</div>
+ </section>
+</main>
+
+<script>
+const stars=document.getElementById('stars');
+
+for(let i=0;i<90;i++){
+ let s=document.createElement('span');
+ s.className='star';
+ s.textContent='✦';
+ s.style.left=Math.random()*100+'%';
+ s.style.top=Math.random()*100+'%';
+ s.style.fontSize=(5+Math.random()*13)+'px';
+ s.style.animationDelay=Math.random()*3+'s';
+ stars.appendChild(s);
+}
+
+function floatHearts(){
+ let h=document.createElement('span');
+ h.className='floating';
+ h.textContent=['♥','♡','✨','💗'][Math.floor(Math.random()*4)];
+ h.style.left=Math.random()*100+'vw';
+ h.style.fontSize=(15+Math.random()*20)+'px';
+ h.style.animationDuration=(6+Math.random()*5)+'s';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),11000);
+}
+setInterval(floatHearts,450);
+
+function openLetter(){
+ document.getElementById('crystalHeart').classList.add('open');
+ document.getElementById('openBtn').classList.add('hidden');
+
+ setTimeout(()=>{
+  document.getElementById('letter').classList.remove('hidden');
+  document.getElementById('letter').scrollIntoView({
+   behavior:'smooth',block:'center'
+  });
+ },650);
+}
+
+function showRing(){
+ document.getElementById('ringCard').classList.remove('hidden');
+ document.getElementById('ringCard').scrollIntoView({
+  behavior:'smooth',block:'center'
+ });
+ startFireworks();
+}
+
+let fireworksStarted=false;
+
+function startFireworks(){
+ if(fireworksStarted)return;
+ fireworksStarted=true;
+
+ const c=document.getElementById('fireworks');
+ const ctx=c.getContext('2d');
+
+ function resize(){
+  c.width=innerWidth;
+  c.height=innerHeight;
+ }
+ resize();
+ window.addEventListener('resize',resize);
+
+ let particles=[];
+
+ function burst(){
+  let x=Math.random()*c.width;
+  let y=Math.random()*c.height*.55;
+
+  for(let i=0;i<45;i++){
+   let a=Math.PI*2*i/45;
+   let speed=1+Math.random()*4;
+
+   particles.push({
+    x,y,
+    vx:Math.cos(a)*speed,
+    vy:Math.sin(a)*speed,
+    life:60,
+    color:['#ffd7ec','#ffe5a6','#ffffff','#d5b5ff']
+    [Math.floor(Math.random()*4)]
+   });
+  }
+ }
+
+ let count=0;
+
+ function animate(){
+  ctx.clearRect(0,0,c.width,c.height);
+
+  if(count++%35===0)burst();
+
+  particles=particles.filter(p=>p.life>0);
+
+  particles.forEach(p=>{
+   p.x+=p.vx;
+   p.y+=p.vy;
+   p.vy+=.025;
+   p.life--;
+
+   ctx.globalAlpha=p.life/60;
+   ctx.fillStyle=p.color;
+   ctx.beginPath();
+   ctx.arc(p.x,p.y,2.5,0,Math.PI*2);
+   ctx.fill();
+  });
+
+  ctx.globalAlpha=1;
+  requestAnimationFrame(animate);
+ }
+ animate();
+}
+</script>
+</body>
+</html>
